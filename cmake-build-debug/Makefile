@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/afeka/AppData/Local/JetBrains/CLion2020.2/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /snap/clion/129/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/afeka/AppData/Local/JetBrains/CLion2020.2/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /snap/clion/129/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code projects/AdvanceProg1"
+CMAKE_SOURCE_DIR = /home/adam-shap/CLionProjects/AdvanceProg1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code projects/AdvanceProg1/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/adam-shap/CLionProjects/AdvanceProg1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = "/cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code 
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/cygdrive/c/Users/afeka/AppData/Local/JetBrains/CLion2020.2/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/129/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/cygdrive/c/Users/afeka/AppData/Local/JetBrains/CLion2020.2/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/129/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code projects/AdvanceProg1/cmake-build-debug/CMakeFiles" "/cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code projects/AdvanceProg1/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam-shap/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles /home/adam-shap/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code projects/AdvanceProg1/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam-shap/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -143,59 +143,32 @@ AdvanceProg1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/build
 .PHONY : AdvanceProg1/fast
 
-ass1/MainTrain.o: ass1/MainTrain.cpp.o
+main.o: main.cpp.o
 
-.PHONY : ass1/MainTrain.o
-
-# target to build an object file
-ass1/MainTrain.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1/MainTrain.cpp.o
-.PHONY : ass1/MainTrain.cpp.o
-
-ass1/MainTrain.i: ass1/MainTrain.cpp.i
-
-.PHONY : ass1/MainTrain.i
-
-# target to preprocess a source file
-ass1/MainTrain.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1/MainTrain.cpp.i
-.PHONY : ass1/MainTrain.cpp.i
-
-ass1/MainTrain.s: ass1/MainTrain.cpp.s
-
-.PHONY : ass1/MainTrain.s
-
-# target to generate assembly for a file
-ass1/MainTrain.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1/MainTrain.cpp.s
-.PHONY : ass1/MainTrain.cpp.s
-
-ass1/anomaly_detection_util.o: ass1/anomaly_detection_util.cpp.o
-
-.PHONY : ass1/anomaly_detection_util.o
+.PHONY : main.o
 
 # target to build an object file
-ass1/anomaly_detection_util.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1/anomaly_detection_util.cpp.o
-.PHONY : ass1/anomaly_detection_util.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-ass1/anomaly_detection_util.i: ass1/anomaly_detection_util.cpp.i
+main.i: main.cpp.i
 
-.PHONY : ass1/anomaly_detection_util.i
+.PHONY : main.i
 
 # target to preprocess a source file
-ass1/anomaly_detection_util.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1/anomaly_detection_util.cpp.i
-.PHONY : ass1/anomaly_detection_util.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-ass1/anomaly_detection_util.s: ass1/anomaly_detection_util.cpp.s
+main.s: main.cpp.s
 
-.PHONY : ass1/anomaly_detection_util.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-ass1/anomaly_detection_util.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1/anomaly_detection_util.cpp.s
-.PHONY : ass1/anomaly_detection_util.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -206,12 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... AdvanceProg1"
-	@echo "... ass1/MainTrain.o"
-	@echo "... ass1/MainTrain.i"
-	@echo "... ass1/MainTrain.s"
-	@echo "... ass1/anomaly_detection_util.o"
-	@echo "... ass1/anomaly_detection_util.i"
-	@echo "... ass1/anomaly_detection_util.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
