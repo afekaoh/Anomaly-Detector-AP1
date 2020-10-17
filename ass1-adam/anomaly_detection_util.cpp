@@ -48,6 +48,9 @@ float cov(float* x, float* y, int size) {
 
 // returns the Pearson correlation coefficient of X and Y
 float pearson(float* x, float* y, int size) {
+	if (size == 0)
+		return 0;
+	
 	float sigX = sqrt(var(x, size));
 	float sigY = sqrt(var(y, size));
 	return cov(x, y, size) / (sigX * sigY);
@@ -55,6 +58,9 @@ float pearson(float* x, float* y, int size) {
 
 // performs a linear regression and returns the line equation
 Line linear_reg(Point** points, int size) {
+	if (size == 0)
+		return Line(0, 0);
+	
 	float x[size];
 	float y[size];
 	for (int i = 0; i < size; i++) {
