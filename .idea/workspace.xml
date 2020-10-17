@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="AdvanceProg1" targetName="AdvanceProg1" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ProjectId" id="1izx5o6KdcgJrByEdRSLTmle4mg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\afeka\OneDrive - Bar-Ilan University\Code projects\AdvanceProg1" />
+      <recent name="C:\Users\afeka\OneDrive - Bar-Ilan University\Code projects\AdvanceProg1\lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdvanceProg1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AdvanceProg1" TARGET_NAME="AdvanceProg1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvanceProg1" RUN_TARGET_NAME="AdvanceProg1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" name="Default Changelist" comment="" />
+      <created>1602924041025</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602924041025</updated>
+      <workItem from="1602924042196" duration="11322000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="70" y="63" width="1086" height="698" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602929571785">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="70" y="63" width="1086" height="698" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602929571785" />
+    <state x="478" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602930081201">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1602930081201" />
+    <state x="334" y="206" key="FileChooserDialogImpl" timestamp="1602926105412">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="334" y="206" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602926105412" />
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1602934671223">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602934671223" />
+    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1602934671223">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602934671223" />
+    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1602934671223">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602934671223" />
+    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1602934671223">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602934671223" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1602926653158">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602926653158" />
+  </component>
+</project>
