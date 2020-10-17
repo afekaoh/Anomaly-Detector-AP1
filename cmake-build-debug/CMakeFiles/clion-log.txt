@@ -1,4 +1,4 @@
-/snap/clion/129/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/adam-shap/CLionProjects/AdvanceProg1
+C:\Users\afeka\AppData\Local\JetBrains\CLion2020.2\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code projects/AdvanceProg1"
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/adam-shap/CLionProjects/AdvanceProg1/cmake-build-debug
+-- Build files have been written to: /cygdrive/c/Users/afeka/OneDrive - Bar-Ilan University/Code projects/AdvanceProg1/cmake-build-debug
