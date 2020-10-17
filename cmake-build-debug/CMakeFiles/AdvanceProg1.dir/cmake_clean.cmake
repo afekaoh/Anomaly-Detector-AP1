@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "AdvanceProg1"
+  "AdvanceProg1.exe"
   "AdvanceProg1.pdb"
   "CMakeFiles/AdvanceProg1.dir/main.cpp.o"
+  "libAdvanceProg1.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
