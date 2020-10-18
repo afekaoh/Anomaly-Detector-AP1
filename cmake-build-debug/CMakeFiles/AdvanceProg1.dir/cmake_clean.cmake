@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "AdvanceProg1.exe"
   "AdvanceProg1.pdb"
-  "CMakeFiles/AdvanceProg1.dir/main.cpp.o"
+  "CMakeFiles/AdvanceProg1.dir/ass1-adam/MainTrain.cpp.o"
+  "CMakeFiles/AdvanceProg1.dir/ass1-adam/anomaly_detection_util.cpp.o"
   "libAdvanceProg1.dll.a"
 )
 
