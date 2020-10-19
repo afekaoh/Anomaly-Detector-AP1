@@ -1,2 +1,2 @@
 # AdvanceProg1
-[v] oz pulled the project
+- [X] oz pulled the project
