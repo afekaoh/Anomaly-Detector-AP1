@@ -51,9 +51,7 @@ float pearson(float* x, float* y, int size) {
 	if (size == 0)
 		return 0;
 	
-	float sigX = sqrt(var(x, size));
-	float sigY = sqrt(var(y, size));
-	return cov(x, y, size) / (sigX * sigY);
+	return cov(x, y, size) / (sqrt(var(x, size) * var(y, size)));
 }
 
 // performs a linear regression and returns the line equation
