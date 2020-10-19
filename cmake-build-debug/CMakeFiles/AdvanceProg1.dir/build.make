@@ -77,30 +77,45 @@ include CMakeFiles/AdvanceProg1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/AdvanceProg1.dir/flags.make
 
-CMakeFiles/AdvanceProg1.dir/main.cpp.o: CMakeFiles/AdvanceProg1.dir/flags.make
-CMakeFiles/AdvanceProg1.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AdvanceProg1.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdvanceProg1.dir/main.cpp.o -c /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/main.cpp
+CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o: CMakeFiles/AdvanceProg1.dir/flags.make
+CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o: ../ass1-oz/anomaly_detection_util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o -c /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/anomaly_detection_util.cpp
 
-CMakeFiles/AdvanceProg1.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdvanceProg1.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/main.cpp > CMakeFiles/AdvanceProg1.dir/main.cpp.i
+CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/anomaly_detection_util.cpp > CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.i
 
-CMakeFiles/AdvanceProg1.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdvanceProg1.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/main.cpp -o CMakeFiles/AdvanceProg1.dir/main.cpp.s
+CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/anomaly_detection_util.cpp -o CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.s
+
+CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o: CMakeFiles/AdvanceProg1.dir/flags.make
+CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o: ../ass1-oz/MainTrain.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o -c /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/MainTrain.cpp
+
+CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/MainTrain.cpp > CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.i
+
+CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/MainTrain.cpp -o CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.s
 
 # Object files for target AdvanceProg1
 AdvanceProg1_OBJECTS = \
-"CMakeFiles/AdvanceProg1.dir/main.cpp.o"
+"CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o" \
+"CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o"
 
 # External object files for target AdvanceProg1
 AdvanceProg1_EXTERNAL_OBJECTS =
 
-AdvanceProg1.exe: CMakeFiles/AdvanceProg1.dir/main.cpp.o
+AdvanceProg1.exe: CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o
+AdvanceProg1.exe: CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o
 AdvanceProg1.exe: CMakeFiles/AdvanceProg1.dir/build.make
 AdvanceProg1.exe: CMakeFiles/AdvanceProg1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable AdvanceProg1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable AdvanceProg1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AdvanceProg1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

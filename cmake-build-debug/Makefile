@@ -143,32 +143,59 @@ AdvanceProg1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/build
 .PHONY : AdvanceProg1/fast
 
-main.o: main.cpp.o
+ass1-oz/MainTrain.o: ass1-oz/MainTrain.cpp.o
 
-.PHONY : main.o
+.PHONY : ass1-oz/MainTrain.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/main.cpp.o
-.PHONY : main.cpp.o
+ass1-oz/MainTrain.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o
+.PHONY : ass1-oz/MainTrain.cpp.o
 
-main.i: main.cpp.i
+ass1-oz/MainTrain.i: ass1-oz/MainTrain.cpp.i
 
-.PHONY : main.i
+.PHONY : ass1-oz/MainTrain.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/main.cpp.i
-.PHONY : main.cpp.i
+ass1-oz/MainTrain.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.i
+.PHONY : ass1-oz/MainTrain.cpp.i
 
-main.s: main.cpp.s
+ass1-oz/MainTrain.s: ass1-oz/MainTrain.cpp.s
 
-.PHONY : main.s
+.PHONY : ass1-oz/MainTrain.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/main.cpp.s
-.PHONY : main.cpp.s
+ass1-oz/MainTrain.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.s
+.PHONY : ass1-oz/MainTrain.cpp.s
+
+ass1-oz/anomaly_detection_util.o: ass1-oz/anomaly_detection_util.cpp.o
+
+.PHONY : ass1-oz/anomaly_detection_util.o
+
+# target to build an object file
+ass1-oz/anomaly_detection_util.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o
+.PHONY : ass1-oz/anomaly_detection_util.cpp.o
+
+ass1-oz/anomaly_detection_util.i: ass1-oz/anomaly_detection_util.cpp.i
+
+.PHONY : ass1-oz/anomaly_detection_util.i
+
+# target to preprocess a source file
+ass1-oz/anomaly_detection_util.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.i
+.PHONY : ass1-oz/anomaly_detection_util.cpp.i
+
+ass1-oz/anomaly_detection_util.s: ass1-oz/anomaly_detection_util.cpp.s
+
+.PHONY : ass1-oz/anomaly_detection_util.s
+
+# target to generate assembly for a file
+ass1-oz/anomaly_detection_util.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvanceProg1.dir/build.make CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.s
+.PHONY : ass1-oz/anomaly_detection_util.cpp.s
 
 # Help Target
 help:
@@ -179,9 +206,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... AdvanceProg1"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... ass1-oz/MainTrain.o"
+	@echo "... ass1-oz/MainTrain.i"
+	@echo "... ass1-oz/MainTrain.s"
+	@echo "... ass1-oz/anomaly_detection_util.o"
+	@echo "... ass1-oz/anomaly_detection_util.i"
+	@echo "... ass1-oz/anomaly_detection_util.s"
 .PHONY : help
 
 

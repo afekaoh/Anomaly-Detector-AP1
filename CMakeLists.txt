@@ -3,7 +3,11 @@ project(AdvanceProg1)
 
 set(CMAKE_CXX_STANDARD 11)
 
+#main program exe
+#add_executable(AdvanceProg1 main.cpp)
+
 #adam ass1
 #add_executable(AdvanceProg1 ass1-adam/MainTrain.cpp ass1-adam/anomaly_detection_util.cpp ass1-adam/anomaly_detection_util.h)
 
-add_executable(AdvanceProg1 main.cpp)
+#oz ass1
+add_executable(AdvanceProg1 ass1-oz/anomaly_detection_util.cpp ass1-oz/anomaly_detection_util.h ass1-oz/MainTrain.cpp)

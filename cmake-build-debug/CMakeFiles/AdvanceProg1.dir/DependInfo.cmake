@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/main.cpp" "/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/main.cpp.o"
+  "/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/MainTrain.cpp" "/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/ass1-oz/MainTrain.cpp.o"
+  "/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/anomaly_detection_util.cpp" "/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/ass1-oz/anomaly_detection_util.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

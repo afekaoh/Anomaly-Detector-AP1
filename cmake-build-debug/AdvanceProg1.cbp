@@ -80,7 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/main.cpp">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/MainTrain.cpp">
+			<Option target="AdvanceProg1"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/anomaly_detection_util.cpp">
+			<Option target="AdvanceProg1"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/ass1-oz/anomaly_detection_util.h">
 			<Option target="AdvanceProg1"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/User/CLionProjects/AdvanceProg1/CMakeLists.txt">
