@@ -10,7 +10,8 @@
 #### _Adam:_
 - [X] creating the project
 - [X] finishing ass1
-
+- [ ] add branches to project 
+- [ ] configure branch to Oz 
 ___
 ## Important links:
 
