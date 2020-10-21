@@ -1,1 +1,0 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/AdvanceProg1.dir/ass1-adam/MainTrain.cpp.o CMakeFiles/AdvanceProg1.dir/ass1-adam/anomaly_detection_util.cpp.o  -o AdvanceProg1.exe -Wl,--out-implib,libAdvanceProg1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
