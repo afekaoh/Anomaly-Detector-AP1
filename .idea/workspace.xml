@@ -15,33 +15,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/instruction.pdf.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
-    <list id="caf7928a-a6f6-4d5c-bb3b-555621a8044f" name="Nup" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ass1-oz/MainTrain.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ass1-oz/MainTrain.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ass1-oz/anomaly_detection_util.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ass1-oz/anomaly_detection_util.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AdvanceProg1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AdvanceProg1.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AdvanceProg1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AdvanceProg1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvanceProg1.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,48 +42,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/.idea/workspace.xml">
-      <ranges>
-        <range start1="2" end1="4" start2="2" end2="19" changelist="caf7928a-a6f6-4d5c-bb3b-555621a8044f" />
-        <range start1="17" end1="20" start2="32" end2="33" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="21" end1="22" start2="34" end2="38" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="23" end1="24" start2="39" end2="45" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="29" end1="30" start2="50" end2="52" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="32" end1="32" start2="54" end2="56" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="33" end1="34" start2="57" end2="57" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="35" end1="35" start2="58" end2="59" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="52" end1="52" start2="76" end2="118" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="64" end1="71" start2="130" end2="131" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="73" end1="76" start2="133" end2="133" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="82" end1="83" start2="139" end2="140" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="84" end1="85" start2="141" end2="142" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="87" end1="88" start2="144" end2="145" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="100" end1="101" start2="157" end2="158" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="111" end1="114" start2="168" end2="168" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="115" end1="117" start2="169" end2="171" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="119" end1="120" start2="173" end2="174" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="121" end1="123" start2="175" end2="177" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="125" end1="126" start2="179" end2="180" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="143" end1="144" start2="197" end2="197" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="147" end1="150" start2="200" end2="202" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="152" end1="154" start2="204" end2="206" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="155" end1="161" start2="207" end2="210" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="162" end1="165" start2="211" end2="214" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="166" end1="169" start2="215" end2="218" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="170" end1="174" start2="219" end2="222" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="175" end1="179" start2="223" end2="226" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="180" end1="184" start2="227" end2="230" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="185" end1="189" start2="231" end2="234" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="190" end1="194" start2="235" end2="238" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="195" end1="202" start2="239" end2="242" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="203" end1="206" start2="243" end2="246" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="207" end1="210" start2="247" end2="250" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="211" end1="214" start2="251" end2="254" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-        <range start1="215" end1="241" start2="255" end2="256" changelist="c8cac444-caf0-4d92-8a38-3fcffa3c2d80" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectId" id="1izx5o6KdcgJrByEdRSLTmle4mg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -110,24 +50,34 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\CLionProjects\AdvanceProg1\ass1-oz" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\afeka\OneDrive - Bar-Ilan University\Code projects\AdvanceProg1" />
       <recent name="C:\Users\afeka\OneDrive - Bar-Ilan University\Code projects\AdvanceProg1\lib" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="AdvanceProg1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AdvanceProg1" TARGET_NAME="AdvanceProg1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvanceProg1" RUN_TARGET_NAME="AdvanceProg1">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="AdvanceProg1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AdvanceProg1" TARGET_NAME="AdvanceProg1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvanceProg1" RUN_TARGET_NAME="AdvanceProg1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -140,7 +90,7 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
-    <configuration>C:\Users\afeka\AppData\Roaming\Subversion</configuration>
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -151,20 +101,29 @@
       <updated>1602924041025</updated>
       <workItem from="1602924042196" duration="11322000" />
       <workItem from="1603046235790" duration="343000" />
+      <workItem from="1603048472368" duration="299000" />
+      <workItem from="1603111673414" duration="967000" />
+      <workItem from="1603112709641" duration="13230000" />
     </task>
-    <task id="LOCAL‎00001" summary="styled the README">
-      <created>1603115107794</created>
+    <task id="LOCAL‎00001" summary="dfg">
+      <created>1603048652970</created>
       <option name="number" value="LOCAL‎00001" />
       <option name="presentableId" value="LOCAL‎00001" />
-      <updated>1603115107794</updated>
+      <updated>1603048652970</updated>
     </task>
-    <task id="LOCAL‎00002" summary="styled the README">
-      <created>1603127473803</created>
+    <task id="LOCAL‎00002" summary="first commit of Oz">
+      <created>1603113082064</created>
       <option name="number" value="LOCAL‎00002" />
       <option name="presentableId" value="LOCAL‎00002" />
-      <updated>1603127473803</updated>
+      <updated>1603113082064</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎00003" summary="first 3 stages of ht project">
+      <created>1603141047594</created>
+      <option name="number" value="LOCAL‎00003" />
+      <option name="presentableId" value="LOCAL‎00003" />
+      <updated>1603141047594</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,64 +139,97 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="addad div by zero support" />
-    <MESSAGE value="styled the README" />
-    <option name="LAST_COMMIT_MESSAGE" value="styled the README" />
+    <MESSAGE value="dfg" />
+    <MESSAGE value="first commit of Oz" />
+    <MESSAGE value="first 3 stages of ht project" />
+    <option name="LAST_COMMIT_MESSAGE" value="first 3 stages of ht project" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="70" y="63" width="1086" height="698" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602929571785">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="70" y="6" width="1086" height="722" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603111714982">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="70" y="63" width="1086" height="698" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602929571785" />
-    <state x="478" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602930081201">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="70" y="6" width="1086" height="722" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1603111714982" />
+    <state x="70" y="63" width="1086" height="698" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state x="478" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603111704032" />
+    <state x="478" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1603141046878">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="478" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1602930081201" />
-    <state x="342" y="0" key="CommitChangelistDialog2" timestamp="1603127472509">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1603141046878" />
+    <state x="129" y="55" key="DiffContextDialog" timestamp="1603113063743">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="342" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603127472509" />
-    <state x="334" y="206" key="FileChooserDialogImpl" timestamp="1603126728302">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="129" y="55" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1603113063743" />
+    <state x="334" y="206" key="FileChooserDialogImpl" timestamp="1603111949573">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="334" y="206" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603126728302" />
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1603123474020">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="334" y="206" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603111949573" />
+    <state x="334" y="206" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603283477341">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603123474020" />
-    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1603123474020">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603283477341" />
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1603283477341">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603123474020" />
-    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1603123474020">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603283477341" />
+    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1603283477340">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603123474020" />
-    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1603123474020">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603283477340" />
+    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1603283477341">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603123474020" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1603141168704">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603283477341" />
+    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1603280214087">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1603141168704" />
-    <state x="112" y="64" key="SettingsEditor" timestamp="1603127246335">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603280214087" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1603280214087">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="112" y="64" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603127246335" />
-    <state x="634" y="302" key="VCS.ChangelistChooser" timestamp="1603114711560">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603280214087" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1603280214087">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="634" y="302" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603114711560" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1603127476772">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603280214087" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1603280214087">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603127476772" />
-    <state x="588" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603141111176">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603280214087" />
+    <state x="129" y="55" key="MergeDialog" timestamp="1603117702579">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="588" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1603141111176" />
+    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1603117702579" />
+    <state x="321" y="125" key="MultipleFileMergeDialog" timestamp="1603141089765">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="321" y="125" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1603141089765" />
+    <state x="279" y="18" key="SettingsEditor" timestamp="1603280810850">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="279" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603280810850" />
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603141097059">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603141097059" />
+    <state x="588" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603117658959">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="588" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1603117658959" />
+    <state x="588" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1603111704032" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1603124130920">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603124130920" />
   </component>
 </project>
