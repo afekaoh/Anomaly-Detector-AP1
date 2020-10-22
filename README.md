@@ -4,7 +4,7 @@
 
 #### _Oz:_
 - [X] pulling the project
-- [ ] finishing ass1
+- [X] finishing ass1
 
 
 #### _Adam:_
