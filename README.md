@@ -4,14 +4,14 @@
 
 #### _Oz:_
 - [X] pulling the project
-- [ ] finishing ass1
+- [X] finishing ass1
 
 
 #### _Adam:_
 - [X] creating the project
 - [X] finishing ass1
-- [ ] add branches to project 
-- [ ] configure branch to Oz 
+- [X] add branches to project 
+- [X] configure branch to Oz 
 ___
 ## Important links:
 
