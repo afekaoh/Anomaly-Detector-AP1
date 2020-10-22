@@ -56,6 +56,7 @@ Line linear_reg(Point** points, int size) {
 		x[i] = points[i]->x;
 		y[i] = points[i]->y;
 	}
+
 	float slope = cov(x, y, size) / var(x, size);
 	float xAvrg = avg(x, size);
 	float yAvrg = avg(y, size);
