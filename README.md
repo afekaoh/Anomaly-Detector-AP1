@@ -2,16 +2,12 @@
 
 ## Tasks: 
 
-#### _Oz:_
-- [X] pulling the project
-- [X] finishing ass1
-
-
 #### _Adam:_
 - [X] creating the project
 - [X] finishing ass1
 - [X] add branches to project 
-- [X] configure branch to Oz 
+- [X] configure branch to Oz
+- [ ] reconfigure git 
 ___
 ## Important links:
 
