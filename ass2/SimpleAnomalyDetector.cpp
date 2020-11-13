@@ -24,25 +24,25 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 		for (auto j = i + 1; j < numOfFeatures; j++) {
 			auto const &feature1 = ts.getFeatureData(features[i]);
 			auto const &feature2 = ts.getFeatureData(features[j]);
-			auto correlation = pearson(feature1.data(), feature2.data(), numOfSamples);
+			auto correlation = pearson(feature1, feature2);
 			//creating the points array and the line regression
 			if (fabs(correlation) >= CORRELATION_THRESHOLD) {
-				Point* points[numOfSamples];
+				std::vector<unique_ptr<Point>> points;
 				for (auto k = 0; k < numOfSamples; k++) {
-					points[k] = new Point(feature1.at(k), feature2.at(k));
+					points.push_back(unique_ptr<Point>(new Point(feature1.at(k), feature2.at(k))));
 				}
-				Line const &lineReg = linear_reg(points, numOfSamples);
+				Line const &lineReg = linear_reg(points);
 				
 				//calculating the max deviation for all the points
-				auto threshold = 0.0f;
-				float tempDev;
-				for_each(points, points + numOfSamples, [&tempDev, &threshold, &lineReg](Point*&p) {
-					if (threshold < (tempDev = dev(*p, lineReg)))
-						threshold = tempDev;
-					//we dont need the point anymore
-					delete p;
-				});
-				threshold *= 1.1;
+				
+				auto it = std::max_element(points.begin(),
+				                           points.end(),
+				                           [&lineReg](const unique_ptr<Point> &p1, const unique_ptr<Point> &p2) {
+					                           return dev(*p1, lineReg) < dev(*p2, lineReg);
+				                           }
+				);
+				
+				float threshold = dev(**it, lineReg) * 1.15f;
 				cf.push_back(
 						correlatedFeatures{
 								(features[i]),
@@ -60,6 +60,7 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
 	vector<AnomalyReport> anomalyReport;
 	auto const numOfSamples = ts.getNumOfSamples();
+	auto const timeSteps = ts.getTimeSteps();
 	for (auto sample = 0; sample < numOfSamples; sample++) {
 		for (const auto &cF:cf) {
 			auto const feature1 = ts.getFeatureData(cF.feature1);
@@ -68,7 +69,7 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
 			auto d = dev(p, cF.lin_reg);
 			
 			if (d > cF.threshold) {
-				anomalyReport.emplace_back(cF.feature1 + "-" + cF.feature2, sample + 1);
+				anomalyReport.emplace_back(cF.feature1 + "-" + cF.feature2, timeSteps.at(sample));
 			}
 		}
 	}

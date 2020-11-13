@@ -68,7 +68,7 @@ void checkCorrelationTrain(correlatedFeatures c, string f1, string f2, float a, 
 int main() {
 	for (int i = 0; i < 1000; i++) {
 		bool flag = true;
-		srand(i * time(NULL));
+		srand((i+1) * time(NULL));
 		float a1 = 1 + rand() % 50, b1 = -50 + rand() % 100;
 		float a2 = 1 + rand() % 20, b2 = -50 + rand() % 100;
 		

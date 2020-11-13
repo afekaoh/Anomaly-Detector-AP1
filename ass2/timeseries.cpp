@@ -1,16 +1,23 @@
 
-/*
- * timeseries.cpp
- *
- * Author: Adam Shapira; 3160044809
- */
 #include "timeseries.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <algorithm>
 
+/*
+ * timeseries.cpp
+ *
+ * Author: Adam Shapira; 3160044809
+ */
+TimeSeries::TimeSeries(char const* CSVfileName, int timeStepIndex) {
+	this->timeStepsIndex = timeStepIndex;
+	createTable(CSVfileName);
+	
+}
+
 TimeSeries::TimeSeries(const char* csvFileName) {
+	this->timeStepsIndex = 0;
 	createTable(csvFileName);
 }
 
@@ -64,4 +71,8 @@ vector<float> TimeSeries::getFeatureData(const std::string &feature) const {
 // returning all the features name only
 vector<string> TimeSeries::getFeatureNames() const {
 	return features;
+}
+
+const std::vector<float> TimeSeries::getTimeSteps() const {
+	return dataTable.at(features[0]);
 }

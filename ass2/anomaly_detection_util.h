@@ -7,17 +7,20 @@
 #define ANOMALYDETECTORUTIL_H_
 
 
-float avg(const float* x, int size);
+#include <vector>
+#include <memory>
+
+float avg(const std::vector<float> &x);
 
 // returns the variance of X
-float var(const float* x, int size);
+float var(const std::vector<float> &x);
 
 // returns the covariance of X and Y
-float cov(const float* x,const float* y, int size);
+float cov(const std::vector<float> &x, const std::vector<float> &y);
 
 
 // returns the Pearson correlation coefficient of X and Y
-float pearson(const float* x, const float* y, int size);
+float pearson(const std::vector<float> &x, const std::vector<float> &y);
 
 class Line {
 public:
@@ -40,12 +43,15 @@ public:
 };
 
 // performs a linear regression and returns the line equation
-Line linear_reg(Point** points, int size);
+Line linear_reg(std::vector<std::unique_ptr<Point>> const &points);
 
-// returns the deviation between point p and the line equation of the points
-float dev(Point p, Point** points, int size);
+// returns the deviation between point p and a group of points
+float dev(const Point &p, std::vector<std::unique_ptr<Point>> &points);
+
+// returns the deviation between point p and a group of points
+float dev(const Point &p, Point** points, int size);
 
 // returns the deviation between point p and the line
-float dev(Point p, Line l);
+float dev(const Point &p, const Line &l);
 
 #endif
