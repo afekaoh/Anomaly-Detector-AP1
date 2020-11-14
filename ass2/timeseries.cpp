@@ -1,19 +1,19 @@
+/*
+ * timeseries.cpp
+*
+* Author: Adam Shapira; 3160044809
+ */
+
 
 #include "timeseries.h"
 #include <fstream>
-#include <iostream>
 #include <sstream>
 #include <algorithm>
 
-/*
- * timeseries.cpp
- *
- * Author: Adam Shapira; 3160044809
- */
-TimeSeries::TimeSeries(char const* CSVfileName, int timeStepIndex) {
+
+TimeSeries::TimeSeries(char const* CsvFileName, int timeStepIndex) {
 	this->timeStepsIndex = timeStepIndex;
-	createTable(CSVfileName);
-	
+	createTable(CsvFileName);
 }
 
 TimeSeries::TimeSeries(const char* csvFileName) {
@@ -24,35 +24,35 @@ TimeSeries::TimeSeries(const char* csvFileName) {
 // saving all the csv data in a map for future use
 void TimeSeries::createTable(char const* csvFileName) {
 	// opening the csv
-	ifstream data(csvFileName);
-	string row;
-	string word;
+	std::ifstream data(csvFileName);
+	std::string row;
+	std::string word;
 	char delim = ',';
 	
 	if (!data.is_open()) {
-		throw runtime_error("error opening file");
+		throw std::runtime_error("error opening file");
 	}
 	
 	// creating the features table and initialized the main table
 	if (data.good()) {
 		getline(data, row);
-		stringstream rowStream(row);
+		std::stringstream rowStream(row);
 		while (getline(rowStream, word, delim)) {
 			features.push_back(word);
-			dataTable.emplace(word, vector<float>());
+			dataTable.emplace(word, std::vector<float>());
 		}
-	}
-	int colIndex = 0;
-	auto length = features.size();
-	vector<insert_iterator<vector<float, allocator<float>>>> its;
-	while (getline(data, row)) {
-		stringstream rowStream(row);
-		std::for_each(features.begin(), features.end(), [&](std::string &s) {
-			its.push_back(inserter(dataTable.at(s), dataTable.at(s).begin()));
-		});
-		while (getline(rowStream, word, delim)) {
-			// converting column based table (each feature in a column) to a row based table (each feature in a row)
-			its[(colIndex++) % length] = stof(word);
+		int colIndex = 0;
+		auto length = features.size();
+		std::vector<std::insert_iterator<std::vector<float, std::allocator<float>>>> its;
+		while (getline(data, row)) {
+			rowStream = std::stringstream(row);
+			std::for_each(features.begin(), features.end(), [&](std::string &s) {
+				its.push_back(inserter(dataTable.at(s), dataTable.at(s).begin()));
+			});
+			while (getline(rowStream, word, delim)) {
+				// converting column based table (each feature in a column) to a row based table (each feature in a row)
+				its[(colIndex++) % length] = stof(word);
+			}
 		}
 	}
 	data.close();
@@ -64,15 +64,16 @@ int TimeSeries::getNumOfSamples() const {
 }
 
 // returning all the data of a given feature
-vector<float> TimeSeries::getFeatureData(const std::string &feature) const {
+const std::vector<float> &TimeSeries::getFeatureData(const std::string &feature) const {
 	return dataTable.at(feature);
 }
 
-// returning all the features name only
-vector<string> TimeSeries::getFeatureNames() const {
+// returning all the features names
+const std::vector<std::string> &TimeSeries::getFeatureNames() const {
 	return features;
 }
 
-const std::vector<float> TimeSeries::getTimeSteps() const {
-	return dataTable.at(features[0]);
+// returning the time step data
+const std::vector<float> &TimeSeries::getTimeSteps() const {
+	return dataTable.at(features[timeStepsIndex]);
 }

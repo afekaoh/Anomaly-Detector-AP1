@@ -11,6 +11,10 @@
 #include <vector>
 #include <memory>
 
+namespace detect_util {
+	float squaresAvg(const std::vector<float> &x);
+}
+
 
 // finds the average of a given array
 float avg(const std::vector<float> &x) {
@@ -21,7 +25,7 @@ float avg(const std::vector<float> &x) {
 }
 
 // finds the average of the squares of the array
-static float squaresAvg(const std::vector<float> &x) {
+float detect_util::squaresAvg(const std::vector<float> &x) {
 	std::vector<float> sqrX;
 	std::for_each(x.begin(), x.end(), [&sqrX](const float &num) {
 		sqrX.push_back(num * num);
@@ -33,7 +37,7 @@ static float squaresAvg(const std::vector<float> &x) {
 float var(const std::vector<float> &x) {
 	auto const average = avg(x);
 	float squareAvr = average * average;
-	return squaresAvg(x) - squareAvr;
+	return detect_util::squaresAvg(x) - squareAvr;
 }
 
 
