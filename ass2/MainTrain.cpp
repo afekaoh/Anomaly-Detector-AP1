@@ -8,7 +8,6 @@
 #include <fstream>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>
-#include <chrono>
 
 /* time */
 
@@ -93,21 +92,16 @@ int main() {
 			
 			SimpleAnomalyDetector ad;
 			
-			auto start = std::chrono::high_resolution_clock::now();
 			ad.learnNormal(ts);
-			auto stop = std::chrono::high_resolution_clock::now();
 			vector<correlatedFeatures> cf = ad.getNormalModel();
 			
-			auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-			learnTime += duration.count();
-
-//			if (cf.size() != 2)
-//				cout << "wrong size of correlated features (-40)" << endl;
-//			else
-//				for_each(cf.begin(), cf.end(), [&a1, &b1, &a2, &b2](const correlatedFeatures &c) {
-//					checkCorrelationTrain(c, "A", "C", a1, b1); // 20 points
-//					checkCorrelationTrain(c, "B", "D", a2, b2); // 20 points
-//				});
+			if (cf.size() != 2)
+				cout << "wrong size of correlated features (-40)" << endl;
+			else
+				for_each(cf.begin(), cf.end(), [&a1, &b1, &a2, &b2](const correlatedFeatures &c) {
+					checkCorrelationTrain(c, "A", "C", a1, b1); // 20 points
+					checkCorrelationTrain(c, "B", "D", a2, b2); // 20 points
+				});
 			
 			// test the anomaly detector: (60 points)
 			// one simply anomaly is injected to the data
@@ -116,12 +110,8 @@ int main() {
 			generateTestCSV(a1, b1, a2, b2, anomaly, anomaly1);
 			TimeSeries ts2("testFile1.csv");
 			
-			start = std::chrono::high_resolution_clock::now();
 			vector<AnomalyReport> r = ad.detect(ts2);
-			stop = std::chrono::high_resolution_clock::now();
-			
-			duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-			detectTime += duration.count();
+
 //
 //		printCF(cf, std::cout);
 
@@ -130,24 +120,20 @@ int main() {
 			int falseAlarms = 0;
 			for_each(r.begin(), r.end(),
 			         [&anomaly, &anomaly1, &anomlyDetected, &falseAlarms, &cf, &flag, &i](const AnomalyReport &ar) {
-				         if (ar.description == "B-D" && (ar.timeStep == anomaly || ar.timeStep == anomaly1))
+				         if (ar.description == "B-D" && (ar.timeStep == anomaly || ar.timeStep == anomaly1)) {
 					         anomlyDetected++;
-				         else {
+				         } else {
+					         cout << anomaly << " " << ar.timeStep << " " << anomaly1 << endl;
 					         falseAlarms++;
 				         }
 			         });
 			
 			if (!anomlyDetected)
 				cout << "the anomaly was not detected (-30) " << samples << endl;
-
-//		if (falseAlarms > 0)
-//			cout << "you have " << falseAlarms << " false alarms (-" << min(30, falseAlarms * 3) << ")" << endl;
+			
+			if (falseAlarms > 0)
+				cout << "you have " << falseAlarms << " false alarms (-" << min(30, falseAlarms * 3) << ")" << endl;
 		}
-		auto learnAvg = (1.0 * learnTime) / n;
-		auto detectAvg = (1.0 * detectTime) / n;
-		out << learnAvg << "," << detectAvg << endl;
-		samples *= 2;
-		cout << "done" << samples % 100 << endl;
 	}
 	cout << "done" << endl;
 	return 0;

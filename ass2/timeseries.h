@@ -22,23 +22,10 @@ public:
 	
 	/**
 	* create a new Time series
-	* @param CSVfileName - the Time series data : the csv should have headers and a column represent a time step
-	* @param timeStepIndex - optional parameter the index to the time step column is the data defaults to 0
-	*/
-	explicit TimeSeries(const char* CSVfileName);
-	
-	/**
-	* create a new Time series
 	* @param CsvFileName - the Time series data : the csv should have headers and a column represent a time step
-	* @param timeStepIndex - optional parameter the index to the time step column is the data defaults to 0
+	* @param timeStepIndex - optional parameter the index to the time step column in the data, defaults to 0
 	*/
-	__attribute__((unused)) TimeSeries(const char* CsvFileName, int timeStepIndex);
-	
-	/**
-	*
-	* @return the number of samples in the time series
-	*/
-	int getNumOfSamples() const;
+	explicit TimeSeries(const char* CsvFileName, int timeStepIndex = 0);
 	
 	/**
 	*

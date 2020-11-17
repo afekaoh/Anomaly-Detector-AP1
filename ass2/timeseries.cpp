@@ -16,10 +16,6 @@ TimeSeries::TimeSeries(char const* CsvFileName, int timeStepIndex) {
 	createTable(CsvFileName);
 }
 
-TimeSeries::TimeSeries(const char* csvFileName) {
-	this->timeStepsIndex = 0;
-	createTable(csvFileName);
-}
 
 // saving all the csv data in a map for future use
 void TimeSeries::createTable(char const* csvFileName) {
@@ -56,11 +52,6 @@ void TimeSeries::createTable(char const* csvFileName) {
 		}
 	}
 	data.close();
-}
-
-//returning the num of samples in the time series.
-int TimeSeries::getNumOfSamples() const {
-	return dataTable.at(features.at(0)).size();
 }
 
 // returning all the data of a given feature

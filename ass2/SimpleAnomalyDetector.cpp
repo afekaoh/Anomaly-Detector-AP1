@@ -13,23 +13,28 @@ SimpleAnomalyDetector::SimpleAnomalyDetector() = default;
 
 SimpleAnomalyDetector::~SimpleAnomalyDetector() = default;
 
-
 void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 	auto features = ts.getFeatureNames();
-	auto numOfFeatures = features.size();
-	auto const numOfSamples = ts.getNumOfSamples();
+	const auto &endIterator = features.end();
 	// going through all the pairs of features
-	for (auto i = 0; i < numOfFeatures; i++) {
-		for (auto j = i + 1; j < numOfFeatures; j++) {
-			auto const &feature2 = ts.getFeatureData(features[j]);
-			auto const &feature1 = ts.getFeatureData(features[i]);
+	for (auto featureIt = features.begin(); featureIt != endIterator; featureIt++) {
+		auto const &feature1 = ts.getFeatureData(*featureIt);
+		for (auto featureIt2 = featureIt + 1; featureIt2 != endIterator; featureIt2++) {
+			auto const &feature2 = ts.getFeatureData(*featureIt2);
 			auto correlation = pearson(feature1, feature2);
 			//creating the points array and the line regression
 			if (fabs(correlation) >= CORRELATION_THRESHOLD) {
 				std::vector<unique_ptr<Point>> points;
-				for (auto k = 0; k < numOfSamples; k++) {
-					points.push_back(unique_ptr<Point>(new Point(feature1.at(k), feature2.at(k))));
-				}
+				
+				detect_util::for_each_2(feature1.begin(),
+				                        feature2.begin(),
+				                        feature1.end(),
+				                        feature2.end(),
+				                        [&points](const float &f1, const float &f2) {
+					                        points.push_back(unique_ptr<Point>(new Point(f1, f2)));
+				                        }
+				);
+				
 				auto const &lineReg = linear_reg(points);
 				
 				//calculating the max deviation for all the points
@@ -42,8 +47,8 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 				float threshold = dev(**it, lineReg) * 1.15f;
 				cf.push_back(
 						correlatedFeatures{
-								(features[i]),
-								(features[j]),
+								*featureIt,
+								*featureIt2,
 								correlation,
 								lineReg,
 								threshold
@@ -56,22 +61,25 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 
 vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
 	vector<AnomalyReport> anomalyReport;
-	auto const numOfSamples = ts.getNumOfSamples();
-	auto const &timeSteps = ts.getTimeSteps();
 	for (auto const &correlatedFeatures:cf) {
-		for (auto sample = 0; sample < numOfSamples; sample++) {
-			auto const &feature1 = ts.getFeatureData(correlatedFeatures.feature1);
-			auto const &feature2 = ts.getFeatureData(correlatedFeatures.feature2);
-			auto const &p = Point(feature1.at(sample), feature2.at(sample));
-			auto d = dev(p, correlatedFeatures.lin_reg);
-			
-			if (d > correlatedFeatures.threshold) {
-				anomalyReport.emplace_back(
-						correlatedFeatures.feature1 + "-" + correlatedFeatures.feature2,
-						timeSteps.at(sample)
-				);
-			}
-		}
+		auto timeSteps = ts.getTimeSteps().begin();
+		auto const &feature1 = ts.getFeatureData(correlatedFeatures.feature1);
+		auto const &feature2 = ts.getFeatureData(correlatedFeatures.feature2);
+		detect_util::for_each_2(feature1.begin(),
+		                        feature2.begin(),
+		                        feature1.end(),
+		                        feature2.end(),
+		                        [&anomalyReport, &timeSteps, &correlatedFeatures](const float &f1, const float &f2) {
+			                        auto const &p = Point(f1, f2);
+			                        auto d = dev(p, correlatedFeatures.lin_reg);
+			                        if (d > correlatedFeatures.threshold) {
+				                        anomalyReport.emplace_back(
+						                        correlatedFeatures.feature1 + "-" + correlatedFeatures.feature2,
+						                        *timeSteps
+				                        );
+			                        }
+			                        timeSteps++;
+		                        });
 	}
 	return anomalyReport;
 }

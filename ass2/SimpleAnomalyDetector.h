@@ -36,6 +36,9 @@ public:
 		return cf;
 	}
 	
+	void
+	for_each_2(vector<float> const &feature1, vector<float> const &feature2, vector<float>::const_iterator &feature1It,
+	           vector<float>::const_iterator &feature2It) const;
 };
 
 
