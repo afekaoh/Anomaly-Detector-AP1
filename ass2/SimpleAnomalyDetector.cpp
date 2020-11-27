@@ -23,11 +23,8 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 			auto const &feature2 = ts.getFeatureData(*featureIt2);
 			auto correlation = pearson(feature1, feature2);
 			//creating the points array and the line regression
-			int maxCor = 0;
+//			int maxcor = 0;
 			if (fabs(correlation) >= CORRELATION_THRESHOLD) {
-			
-			}
-			{
 				std::vector<unique_ptr<Point>> points;
 				
 				detect_util::for_each_2(feature1.begin(),
