@@ -85,13 +85,11 @@ float dev(const Point &p, Point** points, int size) {
 	std::for_each(points, points + size, [&ps](Point* p) {
 		ps.push_back(std::unique_ptr<Point>(p));
 	});
-	auto l = linear_reg(ps);
-	return dev(p, l);
+	return dev(p, linear_reg(ps));
 }
 
 float dev(const Point &p, std::vector<std::unique_ptr<Point>> &points) {
-	auto l = linear_reg(points);
-	return dev(p, l);
+	return dev(p, linear_reg(points));
 }
 
 // returns the deviation between point p and the line

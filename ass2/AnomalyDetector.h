@@ -26,7 +26,7 @@ public:
 	
 	virtual vector<AnomalyReport> detect(const TimeSeries &ts) = 0;
 	
-	virtual ~TimeSeriesAnomalyDetector() {};
+	virtual ~TimeSeriesAnomalyDetector() = default;
 };
 
 #endif /* ANOMALYDETECTOR_H_ */

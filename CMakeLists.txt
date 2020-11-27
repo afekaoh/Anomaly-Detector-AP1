@@ -18,5 +18,5 @@ add_executable(Advance-Programming ass2/anomaly_detection_util.cpp ass2/anomaly_
 
 #add_executable(Advance-Programming ass3/mainTrain.cpp ass3/minCircle.h ass3/minCirg4g.h)
 
-#add_executable(Advance-Programming serv_test/server.cpp serv_test/server.h)
+#add_executable(Advance-Programming ass4/IO/DefaultIO.h ass4/IO/StandartIO.cpp ass4/IO/StandartIO.h ass4/Command/Command.h ass4/Command/printCommand.cpp ass4/Command/printCommand.h ass4/Command/CliCommand.cpp ass4/Command/CliCommand.h ass4/CLI.cpp ass4/Command/UploadCommand.cpp ass4/Command/UploadCommand.h ass4/Command/DownloadCommand.cpp ass4/Command/DownloadCommand.h ass4/Command/ExitCommand.cpp ass4/Command/ExitCommand.h ass4/Command/Exitable.h)
 #add_executable(Advance-Programming1 serv_test/client.cpp serv_test/client.h)

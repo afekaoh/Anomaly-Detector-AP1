@@ -9,8 +9,8 @@
 #include <algorithm>
 #include <string>
 
+
 struct correlatedFeatures {
-	
 	std::string feature1, feature2;  // names of the correlated features
 	float corrlation;
 	Line lin_reg;

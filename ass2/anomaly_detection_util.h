@@ -83,13 +83,41 @@ public:
 */
 Line linear_reg(std::vector<std::unique_ptr<Point>> const &points);
 
-// returns the deviation between point p and a group of points
+/**
+*
+* @param p - point to check
+* @param points - a vector of points to calculate deviation from
+*
+*
+* the function calculate the deviation from a point to a group of points.
+* the function uses unique_ptr for memory management reason.
+*
+* @return the deviation of p from points
+*/
 float dev(const Point &p, std::vector<std::unique_ptr<Point>> &points);
 
-// returns the deviation between point p and a group of points
+/**
+*
+* @param p - point to check
+* @param points - an array of points to calculate deviation from
+* @param size - the size of the points array
+*
+*
+* the function calculate the deviation from a point to a group of points
+*
+* @return the deviation of p from points
+*/
 float dev(const Point &p, Point** points, int size);
 
-// returns the deviation between point p and the line
+/**
+*
+* @param p - point to check
+* @param l - a line to calculate deviation from
+*
+* the function calculate the deviation from a point to a line
+*
+* @return the deviation of p from l
+*/
 float dev(const Point &p, const Line &l);
 
 #endif

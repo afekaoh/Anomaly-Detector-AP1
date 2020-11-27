@@ -20,6 +20,24 @@ void error(const char* msg) {
 	exit(1);
 }
 
+int dosomething(int newsockfd, char* buffer, sockaddr_in const &cli_addr, int n) {
+	
+	
+	// This send() function sends the 13 bytes of the string to the new socket
+	send(newsockfd, "Hello, world!\n", 13, 0);
+	
+	bzero(buffer, 256);
+	n = read(newsockfd, buffer, 255);
+	if (n < 0)
+		error("ERROR reading from socket");
+	
+	if (strcmp(buffer, "exit\n")) {
+		printf("Here is the message: %s\n", buffer);
+		return 1;
+	} else
+		return 0;
+}
+
 int main(int argc, char* argv[]) {
 	int sockfd, newsockfd, portno;
 	socklen_t clilen;
@@ -58,45 +76,30 @@ int main(int argc, char* argv[]) {
 	         sizeof(serv_addr)) < 0)
 		error("ERROR on binding");
 	
-	while (1) {
-		// This listen() call tells the socket to listen to the incoming connections.
-		// The listen() function places all incoming connection into a backlog queue
-		// until accept() call accepts the connection.
-		// Here, we set the maximum size for the backlog queue to 5.
-		listen(sockfd, 5);
-		
-		// The accept() call actually accepts an incoming connection
-		clilen = sizeof(cli_addr);
-		
-		// This accept() function will write the connecting client's address info
-		// into the the address structure and the size of that structure is clilen.
-		// The accept() returns a new socket file descriptor for the accepted connection.
-		// So, the original socket file descriptor can continue to be used
-		// for accepting new connections while the new socker file descriptor is used for
-		// communicating with the connected client.
-		newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen);
-		if (newsockfd < 0)
-			error("ERROR on accept");
-		
-		printf("server: got connection from %s port %d\n", inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
-		
-		
-		// This send() function sends the 13 bytes of the string to the new socket
-		send(newsockfd, "Hello, world!\n", 13, 0);
-		
-		bzero(buffer, 256);
-		
-		n = read(newsockfd, buffer, 255);
-		if (n < 0)
-			error("ERROR reading from socket");
-		
-		if (strcmp(buffer, "exit\n")) {
-			printf("Here is the message: %s\n", buffer);
-		} else {
-			printf("%d", strcmp(buffer, "exit\n"));
-			break;
-		}
-	}
+	// This listen() call tells the socket to listen to the incoming connections.
+	// The listen() function places all incoming connection into a backlog queue
+	// until accept() call accepts the connection.
+	// Here, we set the maximum size for the backlog queue to 5.
+	listen(sockfd, 5);
+	
+	// The accept() call actually accepts an incoming connection
+	clilen = sizeof(cli_addr);
+	
+	// This accept() function will write the connecting client's address info
+	// into the the address structure and the size of that structure is clilen.
+	// The accept() returns a new socket file descriptor for the accepted connection.
+	// So, the original socket file descriptor can continue to be used
+	// for accepting new connections while the new socker file descriptor is used for
+	// communicating with the connected client.
+	newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen);
+	if (newsockfd < 0)
+		error("ERROR on accept");
+	
+	printf("server: got connection from %s port %d\n", inet_ntoa(cli_addr.sin_addr),
+	       ntohs(cli_addr.sin_port));
+	while (dosomething(newsockfd, buffer, cli_addr, n));
+	
+	
 	close(newsockfd);
 	close(sockfd);
 	return 0;

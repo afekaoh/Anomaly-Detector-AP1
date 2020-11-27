@@ -39,12 +39,14 @@ void TimeSeries::createTable(char const* csvFileName) {
 		}
 		int colIndex = 0;
 		auto length = features.size();
+		// creating a vector of insert iterators for all the vectors in dataTable
 		std::vector<std::insert_iterator<std::vector<float, std::allocator<float>>>> its;
 		while (getline(data, row)) {
 			rowStream = std::stringstream(row);
 			std::for_each(features.begin(), features.end(), [&](std::string &s) {
-				its.push_back(inserter(dataTable.at(s), dataTable.at(s).begin()));
+				its.emplace_back(dataTable.at(s), dataTable.at(s).begin());
 			});
+			
 			while (getline(rowStream, word, delim)) {
 				// converting column based table (each feature in a column) to a row based table (each feature in a row)
 				its[(colIndex++) % length] = stof(word);

@@ -23,7 +23,11 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 			auto const &feature2 = ts.getFeatureData(*featureIt2);
 			auto correlation = pearson(feature1, feature2);
 			//creating the points array and the line regression
+			int maxCor = 0;
 			if (fabs(correlation) >= CORRELATION_THRESHOLD) {
+			
+			}
+			{
 				std::vector<unique_ptr<Point>> points;
 				
 				detect_util::for_each_2(feature1.begin(),
@@ -40,7 +44,8 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 				//calculating the max deviation for all the points
 				auto it = std::max_element(points.begin(),
 				                           points.end(),
-				                           [&lineReg](const unique_ptr<Point> &p1, const unique_ptr<Point> &p2) {
+				                           [&lineReg](const unique_ptr<Point> &p1,
+				                                      const unique_ptr<Point> &p2) {
 					                           return dev(*p1, lineReg) < dev(*p2, lineReg);
 				                           }
 				);
@@ -69,12 +74,14 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
 		                        feature2.begin(),
 		                        feature1.end(),
 		                        feature2.end(),
-		                        [&anomalyReport, &timeSteps, &correlatedFeatures](const float &f1, const float &f2) {
+		                        [&anomalyReport, &timeSteps, &correlatedFeatures](const float &f1,
+		                                                                          const float &f2) {
 			                        auto const &p = Point(f1, f2);
 			                        auto d = dev(p, correlatedFeatures.lin_reg);
 			                        if (d > correlatedFeatures.threshold) {
 				                        anomalyReport.emplace_back(
-						                        correlatedFeatures.feature1 + "-" + correlatedFeatures.feature2,
+						                        correlatedFeatures.feature1 + "-" +
+						                        correlatedFeatures.feature2,
 						                        *timeSteps
 				                        );
 			                        }

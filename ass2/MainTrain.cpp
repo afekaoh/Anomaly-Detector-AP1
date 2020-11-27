@@ -43,7 +43,8 @@ void generateTestCSV(float a1, float b1, float a2, float b2, int anomaly, int i1
 			    << bd.f(b) + 1
 			    << endl;
 		} else
-			out << a << "," << b << "," << ac.f(a) - (0.02 * 1) + (rand() % (40 * 1)) / 100.0f << ","
+			out << a << "," << b << "," << ac.f(a) - (0.02 * 1) + (rand() % (40 * 1)) / 100.0f
+			    << ","
 			    << bd.f(b) - (0.02 * 1) + (rand() % (40 * 1)) / 100.0f << endl;
 	}
 	out.close();
@@ -69,14 +70,12 @@ void checkCorrelationTrain(correlatedFeatures c, string f1, string f2, float a, 
 
 
 int main() {
-	std::size_t learnTime = 0;
-	std::size_t detectTime = 0;
-	ofstream out("avg.csv");
+
 	int n = 100;
 	for (int j = 1; j < 10; j++) {
 		for (int i = 0; i < n; i++) {
 			bool flag = true;
-			srand((i + 1) * time(NULL));
+			srand(i + time(NULL));
 			float a1 = 1 + rand() % 50, b1 = -50 + rand() % 100;
 			float a2 = 1 + rand() % 20, b2 = -50 + rand() % 100;
 			
@@ -119,8 +118,10 @@ int main() {
 			int anomlyDetected = 0;
 			int falseAlarms = 0;
 			for_each(r.begin(), r.end(),
-			         [&anomaly, &anomaly1, &anomlyDetected, &falseAlarms, &cf, &flag, &i](const AnomalyReport &ar) {
-				         if (ar.description == "B-D" && (ar.timeStep == anomaly || ar.timeStep == anomaly1)) {
+			         [&anomaly, &anomaly1, &anomlyDetected, &falseAlarms, &cf, &flag, &i](
+					         const AnomalyReport &ar) {
+				         if (ar.description == "B-D" &&
+				             (ar.timeStep == anomaly || ar.timeStep == anomaly1)) {
 					         anomlyDetected++;
 				         } else {
 					         cout << anomaly << " " << ar.timeStep << " " << anomaly1 << endl;
@@ -132,7 +133,8 @@ int main() {
 				cout << "the anomaly was not detected (-30) " << samples << endl;
 			
 			if (falseAlarms > 0)
-				cout << "you have " << falseAlarms << " false alarms (-" << min(30, falseAlarms * 3) << ")" << endl;
+				cout << "you have " << falseAlarms << " false alarms (-" << min(30, falseAlarms * 3)
+				     << ")" << endl;
 		}
 	}
 	cout << "done" << endl;
