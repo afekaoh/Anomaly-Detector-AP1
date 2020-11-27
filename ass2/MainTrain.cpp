@@ -15,6 +15,8 @@ using namespace std;
 
 int samples = 100;
 
+void printCF(vector<correlatedFeatures> vector);
+
 // this is a simple test to put you on the right track
 void generateTrainCSV(float a1, float b1, float a2, float b2) {
 	ofstream out("trainFile1.csv");
@@ -68,12 +70,11 @@ void checkCorrelationTrain(correlatedFeatures c, string f1, string f2, float a, 
 	
 }
 
-
 int main() {
-
+	
 	int n = 100;
-	for (int j = 1; j < 10; j++) {
-		for (int i = 0; i < n; i++) {
+	for (int j = 1; j < 2; j++) {
+		for (int i = 0; i < 1; i++) {
 			bool flag = true;
 			srand(i + time(NULL));
 			float a1 = 1 + rand() % 50, b1 = -50 + rand() % 100;
@@ -112,7 +113,7 @@ int main() {
 			vector<AnomalyReport> r = ad.detect(ts2);
 
 //
-//		printCF(cf, std::cout);
+			printCF(cf);
 
 //		bool anomlyDetected = false;
 			int anomlyDetected = 0;
@@ -139,5 +140,12 @@ int main() {
 	}
 	cout << "done" << endl;
 	return 0;
+}
+
+void printCF(vector<correlatedFeatures> vector) {
+	for (const auto &i:vector) {
+		cout << i << endl;
+	}
+	
 }
 

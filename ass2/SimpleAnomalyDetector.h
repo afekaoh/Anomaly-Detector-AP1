@@ -8,6 +8,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <ostream>
 
 
 struct correlatedFeatures {
@@ -15,6 +16,12 @@ struct correlatedFeatures {
 	float corrlation;
 	Line lin_reg;
 	float threshold;
+	
+	friend ostream &operator<<(ostream &os, correlatedFeatures const &features) {
+		os << "feature1: " << features.feature1 << " feature2: " << features.feature2
+		   << " corrlation: " << features.corrlation << " threshold: " << features.threshold;
+		return os;
+	}
 };
 
 
