@@ -8,37 +8,44 @@
 #include <algorithm>
 #include <iostream>
 
-static float const CORRELATION_THRESHOLD = 0.9;
+SimpleAnomalyDetector::SimpleAnomalyDetector() {
+	this->cf = vector<correlatedFeatures>();
+	this->correlationThreshold = 0.9;
+}
 
-SimpleAnomalyDetector::SimpleAnomalyDetector() = default;
+void SimpleAnomalyDetector::setCorrelationThreshold(float correlationThreshold) {
+	SimpleAnomalyDetector::correlationThreshold = correlationThreshold;
+}
 
 SimpleAnomalyDetector::~SimpleAnomalyDetector() = default;
 
 void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 	auto features = ts.getFeatureNames();
-	auto maxIt = features.begin();
+	// gets value just that i can use auto the value will be override
+	auto feature2MaxIterator = features.begin();
 	const auto &endIterator = features.end();
 	// going through all the pairs of features
-	auto featureIt = features.begin();
-	for (; featureIt != endIterator - 1; featureIt++) {
+	auto feature1Iterator = features.begin();
+	
+	/* runs from the first feature to the one before last no need to check the last one as i check them
+	 in pairs */
+	for (; feature1Iterator != endIterator - 1; feature1Iterator++) {
 		float maxCor = 0;
-		auto featureIt2 = featureIt + 1;
-		maxIt = featureIt2;
-		auto const &feature1 = ts.getFeatureData(*featureIt);
-		for (; featureIt2 != endIterator; featureIt2++) {
-			auto const &feature2 = ts.getFeatureData(*featureIt2);
+		auto feature2Iterator = feature1Iterator + 1;
+		feature2MaxIterator = feature2Iterator;
+		auto const &feature1 = ts.getFeatureData(*feature1Iterator);
+		for (; feature2Iterator != endIterator; feature2Iterator++) {
+			auto const &feature2 = ts.getFeatureData(*feature2Iterator);
 			auto correlation = pearson(feature1, feature2);
 			//creating the points array and the line regression
-			if (fabs(correlation) >= CORRELATION_THRESHOLD) {
-				if (fabs(maxCor) < fabs(correlation)) {
-					maxCor = correlation;
-					maxIt = featureIt2;
-					std::cout << maxCor << std::endl;
-				}
+			if (fabs(correlation) >= this->correlationThreshold &&
+			    fabs(maxCor) < fabs(correlation)) {
+				maxCor = correlation;
+				feature2MaxIterator = feature2Iterator;
 			}
 		}
 		if (maxCor != 0) {
-			auto const &feature2 = ts.getFeatureData(*maxIt);
+			auto const &feature2 = ts.getFeatureData(*feature2MaxIterator);
 			std::vector<unique_ptr<Point>> points;
 			detect_util::for_each_2(feature1.begin(),
 			                        feature2.begin(),
@@ -60,14 +67,13 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 			                           }
 			);
 			float threshold = dev(**it, lineReg) * 1.15f;
-			cf.push_back(
-					correlatedFeatures{
-							*featureIt,
-							*maxIt,
-							maxCor,
-							lineReg,
-							threshold
-					}
+			cf.emplace_back(
+					*feature1Iterator,
+					*feature2MaxIterator,
+					maxCor,
+					lineReg,
+					threshold
+			
 			);
 		}
 	}

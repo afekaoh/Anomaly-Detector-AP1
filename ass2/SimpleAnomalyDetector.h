@@ -5,6 +5,7 @@
 
 #include "anomaly_detection_util.h"
 #include "AnomalyDetector.h"
+#include <utility>
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -12,23 +13,26 @@
 
 
 struct correlatedFeatures {
+	
 	std::string feature1, feature2;  // names of the correlated features
 	float corrlation;
 	Line lin_reg;
 	float threshold;
 	
-	friend ostream &operator<<(ostream &os, correlatedFeatures const &features) {
-		os << "feature1: " << features.feature1 << " feature2: " << features.feature2
-		   << " corrlation: " << features.corrlation << " threshold: " << features.threshold;
-		return os;
-	}
+	correlatedFeatures(const std::string &feature1, const std::string &feature2, float correlation,
+	                   Line const &line_reg, float threshold) : feature1(feature1),
+	                                                            feature2(feature2),
+	                                                            corrlation(correlation),
+	                                                            lin_reg(line_reg),
+	                                                            threshold(threshold) {}
 };
 
 
 class SimpleAnomalyDetector : public TimeSeriesAnomalyDetector {
 	vector<correlatedFeatures> cf;
-
+	float correlationThreshold;
 public:
+	
 	SimpleAnomalyDetector();
 	
 	virtual ~SimpleAnomalyDetector();
@@ -43,9 +47,7 @@ public:
 		return cf;
 	}
 	
-	void
-	for_each_2(vector<float> const &feature1, vector<float> const &feature2, vector<float>::const_iterator &feature1It,
-	           vector<float>::const_iterator &feature2It) const;
+	void setCorrelationThreshold(float correlationThreshold);
 };
 
 
