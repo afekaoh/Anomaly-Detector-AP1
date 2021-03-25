@@ -7,7 +7,8 @@
 - [X] finishing ass1
 - [X] add branches to project 
 - [X] configure branch to Oz
-- [ ] reconfigure git 
+- [X] reconfigure git 
+- [X] finish project
 ___
 ## Important links:
 
