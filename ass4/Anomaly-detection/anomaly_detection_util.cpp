@@ -10,6 +10,7 @@
 #include <numeric>
 #include <vector>
 #include <memory>
+using namespace std;
 
 
 namespace detect_util {

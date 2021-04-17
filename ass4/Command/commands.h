@@ -1,5 +1,6 @@
-
-
+/*
+* Author: Adam Shapira; 3160044809
+ */
 #ifndef COMMANDS_H_
 #define COMMANDS_H_
 
@@ -10,8 +11,9 @@
 #include <sstream>
 #include <utility>
 #include <vector>
-#include "../Anomaly-detection/HybridAnomalyDetector.h"
+#include "../Anomaly-detection/SimpleAnomalyDetector.h"
 //#include "HybridAnomalyDetector.h"
+//#include "SimpleAnomalyDetector.h"
 
 
 class DefaultIO {
@@ -29,17 +31,16 @@ public:
 	// you may add additional methods here
 };
 
-
 // you may add here helper classes
 
 
 class Command {
-protected:
 	DefaultIO* dio;
 	std::string description;
 public:
-	Command(DefaultIO* const &dio, std::string description) : dio(dio),
-	                                                          description(std::move(description)) {}
+	Command(DefaultIO* const &dio, const std::string &description) : dio(dio),
+	                                                                 description(std::move(
+			                                                                 description)) {}
 	
 	virtual void execute() = 0;
 	
@@ -47,13 +48,29 @@ public:
 		return description;
 	};
 	
-	virtual ~Command() {}
+	std::string read() const {
+		return std::move(dio->read());
+	}
+	
+	void read(float* f) {
+		dio->read(f);
+	}
+	
+	void write(const std::string &s) const {
+		dio->write(s);
+	}
+	
+	void write(const float &f) const {
+		dio->write(f);
+	}
+	
+	virtual ~Command() = default;
 };
 
 // an utility to share the anomaly detection data between the commands
 class DetectorUtil {
 	// the anomaly detector
-	HybridAnomalyDetector _anomalyDetector;
+	AnomalyDetector &_anomalyDetector;
 	// the report vector;
 	std::vector<AnomalyReport> _report;
 	// the report condensed to time windows
@@ -61,7 +78,7 @@ class DetectorUtil {
 	// number of data points in the detect time series
 	long size;
 public:
-	explicit DetectorUtil(HybridAnomalyDetector &anomalyDetector) : _anomalyDetector(
+	explicit DetectorUtil(AnomalyDetector &anomalyDetector) : _anomalyDetector(
 			anomalyDetector) {
 		_report = std::vector<AnomalyReport>();
 		size = 0;
@@ -115,31 +132,32 @@ public:
 class UploadCommand : public Command {
 public:
 	void execute() override {
-		dio->write("Please upload your local train CSV file.\n");
-		std::ofstream upld;
+		write("Please upload your local train CSV file.\n");
 		// uploading the Train CSV
-		upld = std::ofstream("anomalyTrain.csv");
+		std::ofstream upld("anomalyTrain.csv");
 		std::string row;
-		row = dio->read();
+		row = read();
 		while (row != "done") {
 			row += "\n";
 			upld.write(row.data(), row.size());
-			row = dio->read();
+			row = read();
 		}
-		dio->write("Upload complete.\n");
+		write("Upload complete.\n");
+		upld.close();
 		
 		// uploading the Test CSV
-		dio->write("Please upload your local test CSV file.\n");
+		write("Please upload your local test CSV file.\n");
 		upld = std::ofstream("anomalyTest.csv");
-		row = dio->read();
+		row = read();
 		while (row != "done") {
 			row += "\n";
 			upld.write(row.data(), row.size());
-			row = dio->read();
+			row = read();
 		}
 		
+		
 		upld.close();
-		dio->write("Upload complete.\n");
+		write("Upload complete.\n");
 	}
 	
 	UploadCommand(DefaultIO* const &dio, const std::string &description) : Command(dio,
@@ -160,17 +178,17 @@ public:
 	
 	void execute() override {
 		// displaying the current threshold
-		dio->write("The current correlation threshold is ");
-		dio->write(_detector.getThreshold());
-		dio->write("\n");
+		write("The current correlation threshold is ");
+		write(_detector.getThreshold());
+		write("\n");
 		
 		// getting the new threshold
 		float th;
-		dio->write("Type a new threshold\n");
-		dio->read(&th);
+		write("Type a new threshold\n");
+		read(&th);
 		while (0 > th || th > 1) {
-			dio->write("please choose a value between 0 and 1.\n");
-			dio->read(&th);
+			write("please choose a value between 0 and 1.\n");
+			read(&th);
 		}
 		
 		// updating the util
@@ -196,7 +214,7 @@ public:
 		// crating the condensed report
 		unifyReport();
 		
-		dio->write("anomaly detection complete.\n");
+		write("anomaly detection complete.\n");
 	}
 	
 	// create a condensed report and updating the util
@@ -238,9 +256,9 @@ public:
 		auto report = detector.getReport();
 		// writing the report to the dio
 		for_each(report.begin(), report.end(), [this](const AnomalyReport &ar) {
-			this->dio->write(std::to_string(ar.timeStep) + "\t" + ar.description + "\n");
+			this->write(std::to_string(ar.timeStep) + "\t" + ar.description + "\n");
 		});
-		dio->write("done.\n");
+		write("done.\n");
 	}
 };
 
@@ -259,77 +277,70 @@ public:
 	
 	void execute() override {
 		// getting all the necessary data
-		auto fileReport = detector.getFileReport();
+		auto detectorReport = detector.getFileReport();
 		auto userReport = getUserReport();
-		auto falsePositiveVec = fileReport;
 		// computing positive and negative
-		int positive = userReport.size();
 		// counting all the reports
-		long sum = 0;
-		for_each(userReport.begin(), userReport.end(), [&sum](std::pair<long, long> &p) {
-			sum += 1 + p.second - p.first;
+		long usrReportSum = 0;
+		for_each(userReport.begin(), userReport.end(), [&usrReportSum](std::pair<long, long> &p) {
+			usrReportSum += 1 + p.second - p.first;
 		});
-		int negative = detector.getSize() - sum;
+		int positive = userReport.size();
 		
-		int truePositive = 0;
-		// computing the true positive and getting the false negative reports
-		for_each(fileReport.begin(), fileReport.end(),
-		         [&userReport, &falsePositiveVec, &truePositive](std::pair<long, long> &rp) {
-			         for_each(userReport.begin(), userReport.end(),
-			                  [&rp, &falsePositiveVec, &truePositive](std::pair<long, long> &up) {
-				                  if (isIntersect(rp, up)) {
-					                  int size = falsePositiveVec.size();
-					                  // removing all the reports that have intersection
-					                  falsePositiveVec.erase(std::remove(falsePositiveVec.begin(),
-					                                                     falsePositiveVec.end(),
-					                                                     rp
-					                                         ),
-					                                         falsePositiveVec.end());
-					                  // adding the reports removed to the true positive count
-					                  truePositive += size - falsePositiveVec.size();
-					
-				                  }
-			                  });
-		         }
+		int negative = detector.getSize() - usrReportSum;
 		
-		);
+		int truePositive = getNumOfIntersections(detectorReport, userReport);
 		
-		int FP = falsePositiveVec.size();
+		int falsePositive = (int) detectorReport.size() - truePositive;
+		
 		// getting the true positive rate
-		dio->write("True Positive Rate: ");
-		float TPR = (float) truePositive / (float) positive;
-		TPR = round(TPR * 1000.0f) / 1000.0f;
-		dio->write(TPR);
-		dio->write("\n");
+		getRate(truePositive, positive, "True Positive Rate: ");
+		getRate(falsePositive, negative, "False Positive Rate: ");
 		
-		// getting the false alarm rate
-		dio->write("False Positive Rate: ");
-		float FAR = (float) FP / ((float) negative);
-		FAR = floor(FAR * 1000.0f) / 1000.0f;
-		dio->write(FAR);
-		dio->write("\n");
+	}
+	
+	// returning the number intersection between detector report and the user report
+	static int getNumOfIntersections(vector<std::pair<long, long>> &detectorReport,
+	                                 vector<std::pair<long, long>> &userReport) {
+		int intersectionCounter = 0;
+		
+		for (auto &uReport : userReport) {
+			intersectionCounter += count_if(detectorReport.begin(),
+			                                detectorReport.end(),
+			                                [&uReport](pair<long, long> &dReport) {
+				                                return isIntersect(dReport, uReport);
+			                                });
+		}
+		return intersectionCounter;
+	}
+	
+	void getRate(int numerator, int denominator, std::string const &s) const {
+		write(s);
+		float rate = (float) numerator / (float) denominator;
+		rate = floor(rate * 1000.0f) / 1000.0f;
+		write(rate);
+		write("\n");
 	}
 	
 	// getting the user report data
-	std::vector<std::pair<long, long>> getUserReport() {
-		dio->write("Please upload your local anomalies file.\n");
+	std::vector<std::pair<long, long>> getUserReport() const {
+		write("Please upload your local anomalies file.\n");
 		std::vector<std::pair<long, long>> userReport;
 		std::string row;
 		std::string word;
-		row = dio->read();
-		std::stringstream sstr;
+		row = read();
 		
 		while (row != "done") {
 			std::pair<long, long> p;
-			sstr = std::stringstream(row);
+			std::stringstream sstr(row);
 			getline(sstr, word, ',');
 			p.first = stol(word);
 			getline(sstr, word, ',');
 			p.second = stol(word);
 			userReport.push_back(p);
-			row = dio->read();
+			row = read();
 		}
-		dio->write("Upload complete.\n");
+		write("Upload complete.\n");
 		return std::move(userReport);
 	}
 	
@@ -340,7 +351,7 @@ class CliCommand : public Command {
 	std::map<std::string, Command*> commands;
 	DetectorUtil detector;
 public:
-	CliCommand(DefaultIO* const &dio, HybridAnomalyDetector anomalyDetector) :
+	CliCommand(DefaultIO* const &dio, AnomalyDetector &anomalyDetector) :
 			Command(dio, ""), detector(anomalyDetector) {
 		// crating all the commends
 		commands = std::map<std::string, Command*>();
@@ -359,29 +370,29 @@ public:
 	void execute() override {
 		std::string st = "6.exit\n";
 		while (true) {
-			dio->write("Welcome to the Anomaly Detection Server.\nPlease choose an option:\n");
+			write("Welcome to the Anomaly Detection Server.\nPlease choose an option:\n");
 			std::for_each(commands.begin(),
 			              commands.end(),
 			              [this](const std::pair<std::string, Command*> &c) {
-				              this->dio->write(c.first + "." + c.second->getDescription() + "\n");
+				              this->write(c.first + "." + c.second->getDescription() + "\n");
 			              }
 			);
-			dio->write(st);
-			std::string s = dio->read();
+			write(st);
+			std::string s = read();
 			// no need for commend to exit.
 			if (s == "6")
 				break;
 			// validating the input
 			while (commands.find(s) == commands.end()) {
-				dio->write("enter a valid option:\n");
-				s = dio->read();
+				write("enter a valid option:\n");
+				s = read();
 			}
 			commands.at(s)->execute();
 		}
 	}
 	
-	// deconstractor
-	~CliCommand() {
+	// deconstructor
+	~CliCommand() override {
 		// deleting all the commends
 		std::for_each(commands.begin(),
 		              commands.end(),

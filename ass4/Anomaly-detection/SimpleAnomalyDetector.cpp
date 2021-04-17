@@ -10,11 +10,6 @@
 
 SimpleAnomalyDetector::SimpleAnomalyDetector() {
 	this->cf = vector<correlatedFeatures>();
-	this->correlationThreshold = 0.9;
-}
-
-void SimpleAnomalyDetector::setCorrelationThreshold(float threshold) {
-	SimpleAnomalyDetector::correlationThreshold = threshold;
 }
 
 SimpleAnomalyDetector::~SimpleAnomalyDetector() = default;
@@ -33,17 +28,18 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 	for (; feature1Iterator != endIterator - 1; feature1Iterator++) {
 		correlatedFeatures cf1 = getMaxCorr(ts, endIterator, feature1Iterator);
 		if (toPush(cf1)) {
-			createCorrealatedFeatures(ts, cf1);
+			createCorrelatedFeatures(ts, cf1);
 		}
 	}
 }
 
 bool SimpleAnomalyDetector::toPush(correlatedFeatures const &cf1) const {
-	return abs(cf1.corrlation) > correlationThreshold;
+	return abs(cf1.corrlation) > this->getCorrelationThreshold();
 }
 
 void
-SimpleAnomalyDetector::createCorrealatedFeatures(TimeSeries const &ts, correlatedFeatures &cf1) {
+SimpleAnomalyDetector::createCorrelatedFeatures(TimeSeries const &ts, correlatedFeatures &cf1) {
+	// creating the data points
 	auto const &feature1 = ts.getFeatureData(cf1.feature1);
 	auto const &feature2 = ts.getFeatureData(cf1.feature2);
 	vector<unique_ptr<Point>> points;
@@ -52,7 +48,7 @@ SimpleAnomalyDetector::createCorrealatedFeatures(TimeSeries const &ts, correlate
 	                        [&points](const float &f1, const float &f2) {
 		                        points.push_back(unique_ptr<Point>(new Point(f1, f2)));
 	                        });
-	
+	//
 	fillCF(cf1, points);
 	
 	cf.push_back(cf1);
@@ -103,7 +99,8 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
 				[this, &anomalyReport, &timeSteps, &correlatedFeatures](const float &f1,
 				                                                        const float &f2) {
 					
-					if (isDev(correlatedFeatures, Point(f1, f2))) {
+					Point const &point = Point(f1, f2);
+					if (getDistance(correlatedFeatures, point) > correlatedFeatures.threshold) {
 						anomalyReport.emplace_back(correlatedFeatures.feature1 + "-" +
 						                           correlatedFeatures.feature2,
 						                           timeSteps);
@@ -114,11 +111,15 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
 	return anomalyReport;
 }
 
-bool SimpleAnomalyDetector::isDev(correlatedFeatures const &correlatedFeatures,
-                                  Point const &point) const {
-	return dev(point, correlatedFeatures.lin_reg) > correlatedFeatures.threshold;
+float SimpleAnomalyDetector::getDistance(correlatedFeatures const &correlatedFeatures,
+                                         Point const &point) const {
+	return dev(point, correlatedFeatures.lin_reg);
 }
 
-float SimpleAnomalyDetector::getCorrelationThreshold() const {
+void AnomalyDetector::setCorrelationThreshold(float threshold) {
+	AnomalyDetector::correlationThreshold = threshold;
+}
+
+float AnomalyDetector::getCorrelationThreshold() const {
 	return correlationThreshold;
 }

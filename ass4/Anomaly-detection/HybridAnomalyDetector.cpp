@@ -1,5 +1,11 @@
 
+/*
+ * timeseries.cpp
+*
+* Author: Adam Shapira; 3160044809
+ */
 #include "HybridAnomalyDetector.h"
+#include "SimpleAnomalyDetector.h"
 
 HybridAnomalyDetector::HybridAnomalyDetector() = default;
 
@@ -10,12 +16,12 @@ bool HybridAnomalyDetector::toPush(const correlatedFeatures &cf1) const {
 	return abs(cf1.corrlation) > 0.5;
 }
 
-bool HybridAnomalyDetector::isDev(const correlatedFeatures &correlatedFeatures,
-                                  const Point &point) const {
-	if (abs(correlatedFeatures.corrlation) > getCorrelationThreshold()) {
-		return SimpleAnomalyDetector::isDev(correlatedFeatures, point);
+float HybridAnomalyDetector::getDistance(correlatedFeatures const &correlatedFeatures,
+                                         Point const &point) const {
+	if (SimpleAnomalyDetector::toPush(correlatedFeatures)) {
+		return SimpleAnomalyDetector::getDistance(correlatedFeatures, point);
 	} else
-		return distance(point, correlatedFeatures.min_circle.center) > correlatedFeatures.threshold;
+		return distance(point, correlatedFeatures.min_circle.center);
 }
 
 
@@ -28,5 +34,6 @@ HybridAnomalyDetector::fillCF(correlatedFeatures &cf1, vector<unique_ptr<Point>>
 	if (abs(cf1.corrlation) > 0.5) {
 		cf1.min_circle = findMinCircle(points.data(), points.size());
 		cf1.threshold = cf1.min_circle.radius * 1.1f;
+		return;
 	}
 }

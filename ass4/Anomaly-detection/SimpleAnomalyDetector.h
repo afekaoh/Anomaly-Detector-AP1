@@ -12,6 +12,8 @@
 #include <utility>
 #include <vector>
 
+using namespace std;
+
 struct correlatedFeatures {
 	
 	std::string feature1, feature2; // names of the correlated features
@@ -20,18 +22,17 @@ struct correlatedFeatures {
 	float threshold;
 	Circle min_circle;
 	
-	correlatedFeatures(std::string const &feature1, std::string const &feature2,
+	correlatedFeatures(std::string feature1, std::string feature2,
 	                   float corrlation, Line const &linReg, float threshold,
 	                   Circle const &minCircle)
-			: feature1(feature1), feature2(feature2), corrlation(corrlation),
+			: feature1(std::move(feature1)), feature2(std::move(feature2)), corrlation(corrlation),
 			  lin_reg(linReg), threshold(threshold), min_circle(minCircle) {}
 	
-	correlatedFeatures(std::string const &feature1, std::string const &feature2,
-	                   float corrlation) {
-		this->feature1 = feature1;
-		this->feature2 = feature2;
-		this->corrlation = corrlation;
-		this->threshold = 0;
+	correlatedFeatures(std::string feature1, std::string feature2,
+	                   float corrlation) : feature1(std::move(feature1)),
+	                                       feature2(std::move(feature2)),
+	                                       corrlation(corrlation), threshold(0) {
+		
 	}
 	
 	
@@ -42,25 +43,30 @@ struct correlatedFeatures {
 	}
 };
 
-class SimpleAnomalyDetector : public TimeSeriesAnomalyDetector {
-	vector<correlatedFeatures> cf;
-	float correlationThreshold;
 
-protected:
+class AnomalyDetector : public TimeSeriesAnomalyDetector {
+	float correlationThreshold = 0.9;
+public:
+	void setCorrelationThreshold(float threshold);
 	
+	float getCorrelationThreshold() const;
+};
+
+class SimpleAnomalyDetector : public AnomalyDetector {
+	vector<correlatedFeatures> cf;
+protected:
 	correlatedFeatures getMaxCorr(TimeSeries const &ts,
 	                              vector<string>::iterator const &endIterator,
 	                              vector<string>::iterator &feature1Iterator);
 	
-	virtual bool
-	isDev(correlatedFeatures const &correlatedFeatures, Point const &point)
-	const;
-	
-	void createCorrealatedFeatures(TimeSeries const &ts, correlatedFeatures &cf1);
+	void createCorrelatedFeatures(TimeSeries const &ts, correlatedFeatures &cf1);
 	
 	virtual void fillCF(correlatedFeatures &cf1, vector<unique_ptr<Point>> &points) const;
 	
 	virtual bool toPush(correlatedFeatures const &cf1) const;
+	
+	virtual float
+	getDistance(correlatedFeatures const &correlatedFeatures, Point const &point) const;
 
 public:
 	
@@ -75,10 +81,6 @@ public:
 	virtual std::vector<AnomalyReport> detect(const TimeSeries &ts);
 	
 	vector<correlatedFeatures> getNormalModel() { return cf; }
-	
-	void setCorrelationThreshold(float threshold);
-	
-	float getCorrelationThreshold() const;
 };
 
 #endif /* SIMPLEANOMALYDETECTOR_H_ */
